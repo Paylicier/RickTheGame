@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://qd1u2ppi8w7a"]
 
 [ext_resource type="Theme" uid="uid://dmenorpmfp80w" path="res://menu.tres" id="1_lti8b"]
-[ext_resource type="Script" uid="uid://drk0gwuw6ytm5" path="res://quit_button.gd" id="2_ouk20"]
-[ext_resource type="Script" uid="uid://donkjtxwl4rnc" path="res://singleplayer_button.gd" id="3_mae5d"]
-[ext_resource type="Script" uid="uid://g5a3v25xgfcg" path="res://multiplayer_button.gd" id="4_4hy44"]
+[ext_resource type="Script" uid="uid://drk0gwuw6ytm5" path="res://scripts/quit_button.gd" id="2_ouk20"]
+[ext_resource type="Script" uid="uid://donkjtxwl4rnc" path="res://scripts/singleplayer_button.gd" id="3_mae5d"]
+[ext_resource type="Script" uid="uid://g5a3v25xgfcg" path="res://scripts/multiplayer_button.gd" id="4_4hy44"]
 
 [node name="Menu" type="Control" unique_id=1856599628]
 layout_mode = 3

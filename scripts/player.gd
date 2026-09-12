@@ -14,7 +14,7 @@ enum SoundType {
 @onready var visual: Node2D = $Sprite2D
 @onready var col: Node2D = $CollisionShape2D
 @onready var dust: GPUParticles2D = $DustParticles
-@onready var audio_player: AudioStreamPlayer2D = $FootstepSFX
+@onready var audio_player: AudioStreamPlayer2D = $PlayerSFX
 
 
 @export var cube_size: float = 32.0
@@ -54,6 +54,9 @@ func _play_jump() -> void:
 func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("left", "right")
+
+	if position.y >= 500: # maybe using a trigger zone or whatever it's called would be better idk
+		get_tree().reload_current_scene()
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta

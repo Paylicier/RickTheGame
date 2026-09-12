@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://nc6ba5midt8r"]
+
+[ext_resource type="Script" uid="uid://dhdsqwtxbuj6n" path="res://trigger_area.gd" id="1_4amfo"]
+[ext_resource type="Texture2D" uid="uid://qx3eewmm6bxr" path="res://assets/sprite/button.png" id="2_2kp8h"]
+[ext_resource type="Texture2D" uid="uid://bk6g2cwlvgk2v" path="res://assets/sprite/button_pressed.png" id="3_lj86r"]
+[ext_resource type="AudioStream" uid="uid://cke6jtfucdke8" path="res://assets/sound/button_pressed.wav" id="4_d7rpu"]
+[ext_resource type="AudioStream" uid="uid://cxef8ekl4auv7" path="res://assets/sound/button_released.wav" id="5_m64rv"]
+
+[sub_resource type="GDScript" id="GDScript_47axv"]
+script/source = "extends StaticBody2D
+
+signal activated
+signal deactivated
+
+
+func _on_trigger_area_activated() -> void:
+	activated.emit()
+
+
+func _on_trigger_area_deactivated() -> void:
+	deactivated.emit()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xl8h"]
+size = Vector2(14, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpmsu"]
+size = Vector2(22, 3)
+
+[node name="Button" type="StaticBody2D" unique_id=1296205430]
+scale = Vector2(2, 2)
+script = SubResource("GDScript_47axv")
+
+[node name="TriggerArea" type="Area2D" parent="." unique_id=858653103]
+script = ExtResource("1_4amfo")
+normal_texture = ExtResource("2_2kp8h")
+pressed_texture = ExtResource("3_lj86r")
+press_sfx = ExtResource("4_d7rpu")
+release_sfx = ExtResource("5_m64rv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea" unique_id=1251813401]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_5xl8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1670984789]
+texture_filter = 3
+texture = ExtResource("2_2kp8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1977182497]
+position = Vector2(0, 14.5)
+shape = SubResource("RectangleShape2D_gpmsu")
+
+[node name="ButtonSFX" type="AudioStreamPlayer2D" parent="." unique_id=1079952464]
+
+[connection signal="activated" from="TriggerArea" to="." method="_on_trigger_area_activated"]
+[connection signal="deactivated" from="TriggerArea" to="." method="_on_trigger_area_deactivated"]
