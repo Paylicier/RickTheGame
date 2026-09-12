@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="rick"
+run/main_scene="uid://bpjy5v678xv5m"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
