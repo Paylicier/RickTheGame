@@ -1,0 +1,8 @@
+[gd_resource type="Theme" format=3 uid="uid://dmenorpmfp80w"]
+
+[ext_resource type="FontFile" uid="uid://bt6cblnklg544" path="res://assets/font/JetBrainsMono-Bold.ttf" id="1_bsmre"]
+
+[resource]
+default_base_scale = 0.85
+default_font = ExtResource("1_bsmre")
+default_font_size = 31
