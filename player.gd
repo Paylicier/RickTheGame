@@ -8,6 +8,8 @@ const SNAP_SPEED = 10.0
 @onready var col: Node2D = $CollisionShape2D
 @export var cube_size: float = 32.0
 
+var is_magic_in_the_air: float = 0.0;
+
 func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("left", "right")
@@ -19,14 +21,21 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	if Input.is_action_just_pressed("jump") and is_on_wall_only() and direction:
+		velocity.y = JUMP_VELOCITY
+		velocity.x = get_wall_normal().x*SPEED
+		is_magic_in_the_air = true
+
+	if not is_magic_in_the_air:
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
 	if is_on_floor():
+		is_magic_in_the_air = false
 		if abs(velocity.x) > 1.0:
 			var radius := cube_size / 2.0
 			visual.rotation += velocity.x * delta / radius
