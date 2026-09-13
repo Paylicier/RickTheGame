@@ -19,6 +19,7 @@ enum SoundType {
 
 @export var cube_size: float = 32.0
 @export var SFX: Array[AudioStream] = []
+@export var push_force: float = 80.0
 
 var _was_on_floor := false
 var _was_on_wall := false
@@ -79,6 +80,14 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is RigidBody2D:
+			var push_direction = -collision.get_normal()
+			collider.apply_central_impulse(push_direction * push_force)
 	
 	if is_on_floor() and not _was_on_floor:
 		_emit_dust()

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://uo87nlk1etrg"]
+
+[ext_resource type="Texture2D" uid="uid://cu8s81y0lfjl0" path="res://assets/sprite/companion_cube.png" id="1_uv8dq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xl8h"]
+size = Vector2(32, 34)
+
+[node name="CompanionCube" type="RigidBody2D" unique_id=1624018828]
+mass = 0.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783104644]
+shape = SubResource("RectangleShape2D_5xl8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=241093417]
+texture_filter = 3
+texture = ExtResource("1_uv8dq")
