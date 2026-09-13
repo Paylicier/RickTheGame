@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dj0rina5ds3tt" path="res://assets/sprite/left.png" id="1_6x7v6"]
 [ext_resource type="Texture2D" uid="uid://4bdnqjuu5wjr" path="res://assets/sprite/right.png" id="2_hklcm"]
 [ext_resource type="Texture2D" uid="uid://xboiskjo13ov" path="res://assets/sprite/up.png" id="3_qyf6p"]
+[ext_resource type="Texture2D" uid="uid://c1of86pgl0esv" path="res://assets/sprite/restart.png" id="4_hklcm"]
 
 [node name="MobileControls" type="CanvasLayer" unique_id=1338979537]
 
@@ -60,5 +61,20 @@ grow_vertical = 0
 texture_filter = 3
 scale = Vector2(5, 5)
 texture_normal = ExtResource("3_qyf6p")
+action = "jump"
+visibility_mode = 1
+
+[node name="SettingsArea" type="Control" parent="Control" unique_id=758095220]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="RestartButton" type="TouchScreenButton" parent="Control/SettingsArea" unique_id=1608631606]
+texture_filter = 3
+position = Vector2(50, 50)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("4_hklcm")
 action = "jump"
 visibility_mode = 1

@@ -54,6 +54,9 @@ func _play_jump() -> void:
 
 func _physics_process(delta: float) -> void:
 	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+	
 	var direction := Input.get_axis("left", "right")
 
 	if position.y >= 800: # maybe using a trigger zone or whatever it's called would be better idk
