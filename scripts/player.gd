@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("left", "right")
 
-	if position.y >= 500: # maybe using a trigger zone or whatever it's called would be better idk
+	if position.y >= 800: # maybe using a trigger zone or whatever it's called would be better idk
 		get_tree().reload_current_scene()
 	
 	if not is_on_floor():

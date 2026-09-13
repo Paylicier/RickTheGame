@@ -62,6 +62,7 @@ text = "singleplayer."
 script = ExtResource("3_mae5d")
 
 [node name="multiplayerButton" type="Button" parent="VBoxContainer" unique_id=990228338]
+visible = false
 custom_minimum_size = Vector2(0, 100)
 custom_maximum_size = Vector2(-1, 200)
 layout_mode = 2
