@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://nc6ba5midt8r" path="res://button.tscn" id="7_kek77"]
 [ext_resource type="Script" uid="uid://bghokn4kmkikx" path="res://scripts/door.gd" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://uo87nlk1etrg" path="res://companion_cube.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dcbnjjh0nl2yo" path="res://MobileControls.tscn" id="11_efxa6"]
 [ext_resource type="Texture2D" uid="uid://bds16cmntyg7d" path="res://assets/sprite/door.png" id="12_dg77c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y0rbu"]
@@ -185,6 +186,8 @@ script = SubResource("GDScript_y0rbu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lvlEnd" unique_id=1604374079]
 position = Vector2(-143, -33)
 shape = SubResource("RectangleShape2D_5xl8h")
+
+[node name="MobileControls" parent="." unique_id=1338979537 instance=ExtResource("11_efxa6")]
 
 [connection signal="activated" from="Button" to="Door" method="_on_button_activated"]
 [connection signal="activated" from="Button2" to="Door2" method="_on_button_2_activated"]

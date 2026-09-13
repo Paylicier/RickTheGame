@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dcbnjjh0nl2yo"]
+
+[ext_resource type="Texture2D" uid="uid://dj0rina5ds3tt" path="res://assets/sprite/left.png" id="1_6x7v6"]
+[ext_resource type="Texture2D" uid="uid://4bdnqjuu5wjr" path="res://assets/sprite/right.png" id="2_hklcm"]
+[ext_resource type="Texture2D" uid="uid://xboiskjo13ov" path="res://assets/sprite/up.png" id="3_qyf6p"]
+
+[node name="MobileControls" type="CanvasLayer" unique_id=1338979537]
+
+[node name="Control" type="Control" parent="." unique_id=727827268]
+modulate = Color(1, 1, 1, 0.19215687)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DPadArea" type="Control" parent="Control" unique_id=1537527599]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+offset_right = 500.0
+grow_vertical = 0
+
+[node name="LeftButton" type="TouchScreenButton" parent="Control/DPadArea" unique_id=1221773041]
+texture_filter = 3
+position = Vector2(50, 0)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("1_6x7v6")
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="RightButton" type="TouchScreenButton" parent="Control/DPadArea" unique_id=563911510]
+texture_filter = 3
+position = Vector2(300, 0)
+scale = Vector2(5, 5)
+texture_normal = ExtResource("2_hklcm")
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="ActionArea" type="Control" parent="Control" unique_id=733301231]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="UpButton" type="TouchScreenButton" parent="Control/ActionArea" unique_id=268526976]
+texture_filter = 3
+scale = Vector2(5, 5)
+texture_normal = ExtResource("3_qyf6p")
+action = "jump"
+visibility_mode = 1
