@@ -2,11 +2,36 @@
 
 [ext_resource type="Texture2D" uid="uid://cu8s81y0lfjl0" path="res://assets/sprite/companion_cube.png" id="1_uv8dq"]
 
+[sub_resource type="GDScript" id="GDScript_c0qwr"]
+resource_name = "AntiSoftLock"
+script/source = "extends RigidBody2D
+
+@export var jump_force: float = 30.0
+var player_below: Node2D = null
+
+func _ready() -> void:
+	contact_monitor = true
+	max_contacts_reported = 4
+	body_entered.connect(func(body):
+		if body.is_in_group(\"player\"):
+			player_below = body
+	)
+	body_exited.connect(func(body):
+		if body == player_below:
+			player_below = null
+	)
+
+func _physics_process(delta: float) -> void:
+	if player_below and global_position.y < player_below.global_position.y:
+		apply_central_impulse(Vector2(0, -jump_force))
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xl8h"]
-size = Vector2(32, 34)
+size = Vector2(32, 32)
 
 [node name="CompanionCube" type="RigidBody2D" unique_id=1624018828]
 mass = 0.8
+script = SubResource("GDScript_c0qwr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1783104644]
 shape = SubResource("RectangleShape2D_5xl8h")
